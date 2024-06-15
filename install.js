@@ -9,6 +9,26 @@ module.exports = {
         ]
       }
     },
+    {
+      method: "shell.run",
+      params: {
+//        env: {
+//          GIT_CLONE_PROTECTION_ACTIVE: "false"
+//        },
+        path: "app",
+        message: [
+          "git lfs install",
+          "git clone https://huggingface.co/fudan-generative-ai/hallo pretrained_models"
+        ]
+      }
+    },
+    {
+      method: "fs.download",
+      params: {
+        dir: "app/pretrained_models/hallo",
+        uri: "https://huggingface.co/fudan-generative-ai/hallo/resolve/main/hallo/net.pth?download=true"
+      }
+    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",
@@ -17,7 +37,7 @@ module.exports = {
         params: {
           venv: "env",                // Edit this to customize the venv folder path
           path: "app",                // Edit this to customize the path to start the shell from
-          // xformers: true   // uncomment this line if your project requires xformers
+          xformers: true   // uncomment this line if your project requires xformers
         }
       }
     },
@@ -29,7 +49,8 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "pip install gradio devicetorch",
-          "pip install -r requirements.txt"
+          "{{platform === 'darwin' ? 'pip install eva-decord' : 'pip install decord'}}",
+          "pip install -r ../requirements.txt",
         ]
       }
     },

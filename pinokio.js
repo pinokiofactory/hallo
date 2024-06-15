@@ -3,7 +3,7 @@ module.exports = {
   version: "1.5",
   title: "hallo",
   description: "",
-  icon: "icon.png",
+  icon: "icon.gif",
   menu: async (kernel) => {
     let installing = await kernel.running(__dirname, "install.js")
     let installed = await kernel.exists(__dirname, "app", "env")
