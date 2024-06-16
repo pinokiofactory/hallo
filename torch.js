@@ -46,7 +46,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "pip install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}}"
+        "message": "pip3 install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu121"
       }
     },
     // linux rocm (amd)
