@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   version: "1.5",
   title: "hallo",
-  description: "Hierarchical Audio-Driven Visual Synthesis for Portrait Image Animation https://github.com/fudan-generative-vision/hallo",
+  description: "[NVIDIA Only] Hierarchical Audio-Driven Visual Synthesis for Portrait Image Animation https://github.com/fudan-generative-vision/hallo",
   icon: "icon.gif",
   menu: async (kernel) => {
     let installing = await kernel.running(__dirname, "install.js")
