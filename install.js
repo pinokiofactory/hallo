@@ -50,6 +50,7 @@ module.exports = {
         message: [
           "pip install gradio devicetorch",
           "{{platform === 'darwin' ? 'pip install eva-decord' : 'pip install decord'}}",
+          "{{gpu==='nvidia' ? 'pip install onnxruntime-gpu' : 'pip install onnxruntime'}}",
           "pip install -r ../requirements.txt",
         ]
       }
