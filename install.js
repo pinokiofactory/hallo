@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/peanutcocktail/hallo app",
+          "git clone https://github.com/cocktailpeanut/hallo app",
         ]
       }
     },
