@@ -29,3 +29,4 @@ transformers==4.39.2
 isort==5.13.2
 pylint==3.2.2
 pre-commit==3.7.1
+huggingface_hub==0.24.7
