@@ -9,26 +9,6 @@ module.exports = {
         ]
       }
     },
-    {
-      method: "shell.run",
-      params: {
-//        env: {
-//          GIT_CLONE_PROTECTION_ACTIVE: "false"
-//        },
-        path: "app",
-        message: [
-          "git lfs install",
-          "git clone https://huggingface.co/fudan-generative-ai/hallo pretrained_models"
-        ]
-      }
-    },
-    {
-      method: "fs.download",
-      params: {
-        dir: "app/pretrained_models/hallo",
-        uri: "https://huggingface.co/fudan-generative-ai/hallo/resolve/main/hallo/net.pth?download=true"
-      }
-    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",
@@ -48,10 +28,19 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "pip install gradio devicetorch",
+          "uv pip install gradio==3.50.2 devicetorch",
           "{{platform === 'darwin' ? 'pip install eva-decord' : 'pip install decord'}}",
-          "pip install -r ../requirements.txt",
+          "uv pip install -r ../requirements.txt",
         ]
+      }
+    },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "fudan-generative-ai/hallo" ],
+        "exclude": "*.md",
+        "local-dir": "pretrained_models",
       }
     },
     //  Uncomment this step to add automatic venv deduplication (Experimental)
