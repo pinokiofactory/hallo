@@ -38,7 +38,7 @@ module.exports = {
       method: "shell.run",
       params: {
         path: "app",
-        message: 'hf download fudan-generative-ai/hallo --local-dir pretrained_models --exclude="*.md" && dir'
+        message: 'hf download fudan-generative-ai/hallo --local-dir pretrained_models --exclude="*.md"'
       }
     },
     {
