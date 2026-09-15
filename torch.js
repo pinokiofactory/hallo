@@ -72,7 +72,7 @@ module.exports = {
     },
     // linux cpu
     {
-      "when": "{{platform === 'linux' && (gpu !== 'amd' && gpu !=='amd')}}",
+      "when": "{{platform === 'linux' && (gpu !== 'amd' && gpu !== 'nvidia')}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
